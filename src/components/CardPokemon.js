@@ -18,6 +18,7 @@ const CardPokemon = () => {
                 <NomePokemon>Nome</NomePokemon>
             </ViewNomePokemon>
         </Card>
+        
     );
 }
 
@@ -25,7 +26,7 @@ const Card = styled.View`
     width: 104px;
     height: 112px;
     border-radius: 8px;
-    border-color: #050;
+    border-color: #74CB48;
     border-width: 1px;
     margin-right: 18px;
 
@@ -58,7 +59,7 @@ const ImagePokemon = styled.Image`
 `;
 
 const ViewNomePokemon = styled.View`
-    background-color: #050;
+    background-color: #74CB48;
     width: 100%;
     height:24px;
     justify-content: center;
