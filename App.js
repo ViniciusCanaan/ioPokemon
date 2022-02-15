@@ -4,16 +4,14 @@ import {View, Text} from 'react-native';
 import CardPokemon from "./src/components/CardPokemon";
 import Header from "./src/components/Header";
 import Search from "./src/components/Search";
+import Statistics from "./src/screens/Statistics";
 
 
 const App = () =>{
     return(
-      <View>
-        <Header/>
-        <Search/>
-        <CardPokemon/>
-        {/* <Search /> */}
-      </View>
+      // <View>
+        <Statistics/> 
+      // </View>
     );
 }
 
