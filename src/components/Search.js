@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import { TextInput, Image, View, Text, TouchableOpacity } from "react-native";
-import colors from '../colors/colors.js';
+import {colors} from '../colors/colors.js';
 import styled from "styled-components";
 
 import IconProcurar from '../icons/procurar.png';
@@ -10,7 +10,7 @@ import IconHeartVoid from '../icons/heartVoid.png';
 
 
 
-const Search = () => {
+const Search = ({titulo}) => {
 
     const [heart, setHeart] = useState(false);  
 
@@ -25,9 +25,10 @@ const Search = () => {
 
 
     return (
-        <View style={{flexDirection:'row', alignItems:'center', width:'80%', justifyContent:'space-around'}}>
+        <View style={{alignItems:'center'}}>
+        <View style={{flexDirection:'row', alignItems:'center', width:'85%', justifyContent:'space-around'}}>
         <ViewInput>
-            <TextTitleInput>Buscar</TextTitleInput>
+            <TextTitleInput>{titulo}</TextTitleInput>
             <Input
                 placeholder="Buscar pokemon"
                 placeholderTextColor="#666666"
@@ -45,6 +46,7 @@ const Search = () => {
             
         </TouchableOpacity>
         </View>
+        </View>
 
     );
 
@@ -57,7 +59,7 @@ const ViewInput = styled.View`
         height: 54px;
         border-width: 2px;
         border-radius: 8px;
-        border-color: #EC0344;
+        border-color: ${colors.SecondaryColor};
         flex-direction: row;
         justify-content: center;
         align-items:center;
@@ -68,8 +70,8 @@ const TextTitleInput = styled.Text`
     top: -10px;
     left: 10px;
     font-weight: bold;
-    color: #EC0344
-    background-color: #ffffff;
+    color: ${colors.SecondaryColor};
+    background-color: ${colors.White};
     padding-left: 45px;
 `;
 

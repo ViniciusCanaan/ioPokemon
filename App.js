@@ -5,12 +5,14 @@ import CardPokemon from "./src/components/CardPokemon";
 import Header from "./src/components/Header";
 import Search from "./src/components/Search";
 import Statistics from "./src/screens/Statistics";
+import Home from "./src/screens/Home";
 
 
 const App = () =>{
     return(
       // <View>
-        <Statistics/> 
+        // <Statistics/> 
+        <Home/>
       // </View>
     );
 }

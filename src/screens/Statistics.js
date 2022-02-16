@@ -10,6 +10,7 @@ import IconHeartVoid from '../icons/heartVoid.png'
 import IconHeart from '../icons/heart.png';
 import Balanca from '../icons/balanca.png';
 import Regua from '../icons/regua.png';
+import { colors } from "../colors/colors";
 
 const Statistics = () => {
 
@@ -219,7 +220,7 @@ const Title = styled.Text`
 
 const TitleStats = styled.Text`
     font-size: 14px;
-    color: #74CB48;
+    color: ${colors.Grass};
     padding-left: 40px;
     padding-top: 7px;
     font-weight: 600;

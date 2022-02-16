@@ -2,20 +2,42 @@ import React from "react";
 
 import Bulbasaur from '../images/Bulbasaur.png'
 
+import { colors } from "../colors/colors";
+
 import { View, Text, Image } from 'react-native';
 import styled from "styled-components";
 
-const CardPokemon = () => {
+const CardPokemon = ({id, nome, imagem}) => {
+
+    const Normal = colors.Normal;
+    const Fighting = colors.Fighting;
+    const Flying = colors.Flying;
+    const Ground = colors.Ground;
+    const Poison = colors.Poison;
+    const Rock = colors.Rock;
+    const Bug = colors.Bug;
+    const Ghost = colors.Ghost;
+    const Steel = colors.Steel;
+    const Fire = colors.Fire;
+    const Water = colors.Water;
+    const Grass = colors.Grass;
+    const Eletric = colors.Eletric;
+    const Psychic = colors.Psychic;
+    const Ice = colors.Ice;
+    const Dragon = colors.Dragon;
+    const Dark = colors.Dark;
+    const Fairy = colors.Fairy;
+
     return (
         <Card>
             <ViewIdPokemon>
-                <TextId>001</TextId>
+                <TextId>{id}</TextId>
             </ViewIdPokemon>
             <ViewImagePokemon>
                 <Image source={Bulbasaur} />
             </ViewImagePokemon>
             <ViewNomePokemon>
-                <NomePokemon>Nome</NomePokemon>
+                <NomePokemon>{nome}</NomePokemon>
             </ViewNomePokemon>
         </Card>
         
@@ -29,6 +51,7 @@ const Card = styled.View`
     border-color: #74CB48;
     border-width: 1px;
     margin-right: 18px;
+    margin-bottom: 18px;
 
 `;
 
@@ -74,7 +97,7 @@ const NomePokemon = styled.Text`
     font-weight: normal;
     font-size: 10px;
     line-height: 16px;
-    color: #FFFFFF
+    color: ${colors.White}
 `;
 
 export default CardPokemon;
