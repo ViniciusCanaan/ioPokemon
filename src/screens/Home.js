@@ -15,25 +15,35 @@ const Home = () => {
 
     const [pokemon, setPokemon] = useState([])
 
+    
+
+    // function PokemonShow(item) {
+    //     const {data} = item.item
+        // const pokemonNumber = item.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '')
+    //     const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+pokemonNumber+'.png'
+
+    //     console.log(pokemonNumber);
+    //     console.log(imageUrl);
+    // }
+
     useEffect(() => {
         async function requestPokemons() {
-            const { data } = await api.get('/?offset=0&limit=1000');
+            const { data } = await api.get('/pokemon/?offset=0&limit=1000');
+            // const pokemonNumber = item.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '')
             console.log(data);
             setPokemon(data.results);
         }
         requestPokemons();
-        //AQUI
-        //     fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1000', {
-        //         method: 'GET',
-        //         headers: {
-        //             'Accept': 'application/json'
-        //         }
-        //     })
-        //         .then(response => response.json())
-        //         .then(data => {
-        //             setPokemon(data.results)
-        //         })
     }, [])
+
+    // useEffect(() =>{
+    //     async function requestType(){
+    //         const {data} = await api.get('/type');
+    //         console.log(data);
+    //         setPokemon(data.results);
+    //     }
+    //     requestType();
+    // },[])
 
 
     return (
@@ -44,9 +54,7 @@ const Home = () => {
                 <FlatList style={{ flexDirection: 'row' }}
                     style={{ flex: 1 }}
                     data={pokemon}
-                    renderItem={({ item }) => (
-                        <CardPokemon nome={item.name} />
-                    )}
+                    renderItem={PokemonShow}
                     keyExtractor={(item) => item.name}
                     // contentContainerStyle={{ flexGrow: 1 }}
                     numColumns={3}
@@ -54,6 +62,23 @@ const Home = () => {
             </View>
         </>
     );
+
+    function PokemonShow(item){
+        const {name, url} = item.item
+
+        const pokemonNumber = url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '')
+
+        const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+pokemonNumber+'.png'
+
+        return(
+              <>
+            <CardPokemon  nome={name} imagem={imageUrl}/>
+                {/* <Image style={{width: 50, height: 50}} source={{uri: imageUrl}}/> */}
+                </>
+        );
+
+    }
+    
 
 
     //     const[pokemon, setPokemon] = useState([])

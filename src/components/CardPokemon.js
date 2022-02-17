@@ -34,11 +34,13 @@ const CardPokemon = ({id, nome, imagem}) => {
                 <TextId>{id}</TextId>
             </ViewIdPokemon>
             <ViewImagePokemon>
-                <Image source={Bulbasaur} />
+                <Image style={{width:75, height:75, resizeMode:'contain'}} source={{ uri: imagem}} />
             </ViewImagePokemon>
+            <View style={{flex:1, justifyContent:'flex-end', alignItems:'flex-end'}}>
             <ViewNomePokemon>
                 <NomePokemon>{nome}</NomePokemon>
             </ViewNomePokemon>
+            </View>
         </Card>
         
     );
