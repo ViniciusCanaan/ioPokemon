@@ -21,8 +21,8 @@ export const Header = () => {
                 <TituloApp>ioasys pokédex</TituloApp>
                 <ViewToggle>
                     <Switch
-                        trackColor={{ false: "#FFFFFF", true: "#81b0ff" }}
-                        thumbColor={isEnabled ? "#f5dd4b" : "#8D8B92"}
+                        trackColor={{ false: "#FFFFFF", true: "#FFFFFF" }}
+                        thumbColor={isEnabled ? "#EC0344" : "#8D8B92"}
                         ios_backgroundColor="#3e3e3e"
                         onValueChange={toggleSwitch}
                         value={isEnabled}

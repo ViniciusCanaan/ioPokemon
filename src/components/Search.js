@@ -10,7 +10,7 @@ import IconHeartVoid from '../icons/heartVoid.png';
 
 
 
-const Search = ({titulo}) => {
+const Search = ({titulo, navegar}) => {
 
     const [heart, setHeart] = useState(false);  
 
@@ -37,7 +37,7 @@ const Search = ({titulo}) => {
                 <Image style={{ width: 20, height: 20 }} source={IconProcurar} />
             </TouchableOpacity>
         </ViewInput>
-        <TouchableOpacity onPress={HeartLike}>
+        <TouchableOpacity onPress={HeartLike} onPress={navegar}>
             {heart ?
                 <Image style={{ width: 20, height: 20 }} source={IconHeart} />
                 :
