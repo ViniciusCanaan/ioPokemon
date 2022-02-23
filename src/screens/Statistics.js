@@ -11,10 +11,14 @@ import IconHeart from '../icons/heart.png';
 import Balanca from '../icons/balanca.png';
 import Regua from '../icons/regua.png';
 import { colors } from "../colors/colors";
+import HeaderStatistics from "../components/HeaderStatistics";
+import { useNavigation } from "@react-navigation/native";
 
 const Statistics = () => {
 
     const [heart, setHeart] = useState(false);
+
+    const navigation = useNavigation();
 
     function HeartLike() {
         if (heart == true) {
@@ -27,6 +31,7 @@ const Statistics = () => {
 
     return (
         <Background>
+            <HeaderStatistics />
             <View style={{ alignItems: 'flex-end' }}>
                 <ImagemPokebola source={Pokeball} />
             </View>

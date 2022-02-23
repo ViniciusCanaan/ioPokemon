@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
-import { View, Text, Image, Button, FlatList, ScrollView } from 'react-native';
+import { View, Text, Image, Button, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Header from '../components/Header';
@@ -17,7 +17,24 @@ const Home = () => {
 
     const navigation = useNavigation();
 
-    const [pokemon, setPokemon] = useState([])
+    const [pokemon, setPokemon] = useState([]);
+    const [searchText, setSearchText] = useState('');
+
+    useEffect(() => {
+        if (searchText === '') {
+            setPokemon(pokemon);
+        } else {
+            setPokemon(
+                pokemon.filter((item) => {
+                    if (item.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                })
+            );
+        }
+    }, [searchText])
 
     useEffect(() => {
         async function requestPokemons() {
@@ -29,15 +46,20 @@ const Home = () => {
     }, [])
 
 
-    const handleGoFavorits = () =>{
+    const handleGoFavorits = () => {
         console.log('Cliquei');
         navigation.navigate('Favorits');
+    }
+
+    const handleGoStatistics = () =>{
+        console.log('Cliquei');
+        navigation.navigate('Statistics')
     }
 
     return (
         <>
             <Header />
-            <Search titulo="Buscar" navegar={handleGoFavorits}/>
+            <Search titulo="Buscar" navegar={handleGoFavorits} valorBusca={searchText} salvamentoBusca={setSearchText} />
             <View style={{ width: '100%', paddingLeft: 15, paddingTop: 40, flexDirection: 'row', paddingRight: 15 }}>
                 <FlatList style={{ flexDirection: 'row' }}
                     style={{ flex: 1 }}
@@ -51,21 +73,23 @@ const Home = () => {
         </>
     );
 
-    function PokemonShow(item){
-        const {name, url} = item.item
+    function PokemonShow(item) {
+        const { name, url } = item.item
 
         const pokemonNumber = url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '')
 
-        const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+pokemonNumber+'.png'
+        const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemonNumber + '.png'
 
-        return(
-              <>
-            <CardPokemon  nome={name} imagem={imageUrl}/>
-                </>
+        return (
+            <>
+                <TouchableOpacity onPress={handleGoStatistics}>
+                    <CardPokemon nome={name} imagem={imageUrl}/>
+                </TouchableOpacity>
+            </>
         );
 
     }
-    
+
 }
 
 export default Home;

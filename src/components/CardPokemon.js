@@ -4,10 +4,10 @@ import Bulbasaur from '../images/Bulbasaur.png'
 
 import { colors } from "../colors/colors";
 
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styled from "styled-components";
 
-const CardPokemon = ({id, nome, imagem}) => {
+const CardPokemon = ({ id, nome, imagem }) => {
 
     const Normal = colors.Normal;
     const Fighting = colors.Fighting;
@@ -29,20 +29,19 @@ const CardPokemon = ({id, nome, imagem}) => {
     const Fairy = colors.Fairy;
 
     return (
-        <Card>
-            <ViewIdPokemon>
-                <TextId>{id}</TextId>
-            </ViewIdPokemon>
-            <ViewImagePokemon>
-                <Image style={{width:75, height:75, resizeMode:'contain'}} source={{ uri: imagem}} />
-            </ViewImagePokemon>
-            <View style={{flex:1, justifyContent:'flex-end', alignItems:'flex-end'}}>
-            <ViewNomePokemon>
-                <NomePokemon>{nome}</NomePokemon>
-            </ViewNomePokemon>
-            </View>
-        </Card>
-        
+            <Card>
+                <ViewIdPokemon>
+                    <TextId>{id}</TextId>
+                </ViewIdPokemon>
+                <ViewImagePokemon>
+                    <Image style={{ width: 75, height: 75, resizeMode: 'contain' }} source={{ uri: imagem }} />
+                </ViewImagePokemon>
+                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                    <ViewNomePokemon>
+                        <NomePokemon>{nome}</NomePokemon>
+                    </ViewNomePokemon>
+                </View>
+            </Card>
     );
 }
 

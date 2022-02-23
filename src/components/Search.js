@@ -10,7 +10,9 @@ import IconHeartVoid from '../icons/heartVoid.png';
 
 
 
-const Search = ({titulo, navegar}) => {
+const Search = ({titulo, navegar, valorBusca, salvamentoBusca}) => {
+
+    const [searchText, setSearchText] = useState('');
 
     const [heart, setHeart] = useState(false);  
 
@@ -32,6 +34,8 @@ const Search = ({titulo, navegar}) => {
             <Input
                 placeholder="Buscar pokemon"
                 placeholderTextColor="#666666"
+                value={valorBusca}
+                onChangeText={(t)=>{salvamentoBusca(t)}}
             />
             <TouchableOpacity>
                 <Image style={{ width: 20, height: 20 }} source={IconProcurar} />
