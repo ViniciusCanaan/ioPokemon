@@ -9,7 +9,7 @@ import styled from "styled-components";
 import Voltar from '../icons/voltarbranco.png'
 import { useNavigation } from "@react-navigation/native";
 
-export const HeaderStatistics = () => {
+export const HeaderStatistics = ({titulo}) => {
 
     const navigation = useNavigation();
 
@@ -19,7 +19,7 @@ export const HeaderStatistics = () => {
                 <TouchableOpacity onPress={navigation.goBack}>
                 <Image style={{ marginLeft: 40, marginRight: 16, width: 17, height: 17 }} source={Voltar} />
                 </TouchableOpacity>
-                <TituloApp>Nome Pokemon</TituloApp>
+                <TituloApp>{titulo}</TituloApp>
                 <TituloId>001</TituloId>
             </DadosCabecalho>
         </>

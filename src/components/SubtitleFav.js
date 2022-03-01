@@ -11,7 +11,7 @@ const SubtitleFav = () => {
                 <IconHeart source={heart}/>
                 <TextSubtitle>Meus favoritos</TextSubtitle>
             </ViewSubtitle>
-            <ViewFavoritePoke/>
+            {/* <ViewFavoritePoke/> */}
         </>
         
     );

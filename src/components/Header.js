@@ -2,16 +2,34 @@ import React, { useState } from "react";
 
 import { View, Image, Switch } from 'react-native';
 
+import SwitchBackground from "./SwitchBackground";
+
 import { colors } from "../colors/colors";
 
 import styled from "styled-components";
 
 import Logo from '../icons/logo.png';
 
-export const Header = () => {
+export const Header = ({ funcao }) => {
 
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [background, setBackround] = useState('#FFFFFF');
+
+    // function toggleSwitch(){
+    //     setIsEnabled(previousState => !previousState)
+    //     background === '#FFFFFF' ?
+    //     setBackround('#131313') : 
+    //     setBackround('#FFFFFF')
+    // }
+    // const toggleSwitch = () => setIsEnabled(previousState => !previousState), setBackround();
+
+    function mudarBackground() {
+        background === '#FFFFFF' ?
+            setBackround('#131313') :
+            setBackround('#FFFFFF')
+
+    }
 
     return (
         <>
@@ -24,10 +42,20 @@ export const Header = () => {
                         trackColor={{ false: "#FFFFFF", true: "#FFFFFF" }}
                         thumbColor={isEnabled ? "#EC0344" : "#8D8B92"}
                         ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitch}
+                        onValueChange={funcao}
                         value={isEnabled}
                     />
                 </ViewToggle>
+                {/* <SwitchBackground funcao={mudarBackground}/> */}
+                {/* <ViewToggle>
+                    <Switch
+                        trackColor={{ false: "#FFFFFF", true: "#FFFFFF" }}
+                        thumbColor={isEnabled ? "#EC0344" : "#8D8B92"}
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch}
+                        value={isEnabled}
+                    />
+                </ViewToggle> */}
             </DadosCabecalho>
         </>
     );
