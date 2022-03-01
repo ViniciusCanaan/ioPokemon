@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
-import { View, Text, Image, Button, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, Button, FlatList, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Header from '../components/Header';
@@ -83,6 +83,9 @@ const Home = () => {
 
     return (
         <>
+        <StatusBar
+            hidden={true}
+        />
             <View style={{ flex: 1, backgroundColor: background }}>
                 <Header funcao={mudarBackground} />
                 <Search titulo="Buscar" navegar={handleGoFavorits} valorBusca={searchText} salvamentoBusca={setSearchText} />
